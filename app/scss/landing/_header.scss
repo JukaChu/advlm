@@ -1,0 +1,99 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 0;
+    background: $cream;
+
+    &-top {
+        width: 100%;
+        padding: 3rem 0 0.5rem;
+        border-bottom: 0.1rem solid $main-color;
+        transition: all 0.4s ease-in-out;
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            width: 19.2rem;
+            display: flex;
+            height: auto;
+
+            a, img {
+                display: flex;
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    &.header-fixed {
+        .header-top {
+            padding: 0.5rem 0;
+        }
+    }
+
+    &-bot {
+        width: 100%;
+
+    }
+
+    &-menu {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.4rem;
+
+            li {
+                display: flex;
+
+                a {
+                    padding: 0.3rem 0 0.3rem;
+                    transition: all 0.4s ease-in-out;
+                    @include text(0.8rem, $main-color, 1.25, 500);
+                    border-bottom: 1px solid rgba(255, 255, 255, 0);
+
+                    &:hover, &.active {
+                        border-bottom-color: $main-color;
+                    }
+                }
+
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header {
+        padding-bottom: 0;
+
+        &-top {
+            padding: 3rem 0 0.5rem;
+
+            .logo {
+                width: 14.8rem;
+            }
+        }
+
+        &-menu {
+            ul {
+                gap: 1.3rem;
+            }
+        }
+    }
+}

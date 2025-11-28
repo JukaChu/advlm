@@ -1,0 +1,236 @@
+.media-section {
+    padding: 120px 0;
+
+    &__wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 30px;
+    }
+
+    &__top {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+    }
+
+    &__content {
+        width: 100%;
+    }
+
+    &__slider {
+        width: 100%;
+        padding-bottom: 38px;
+
+        .splide {
+            padding: 0 80px;
+        }
+    }
+
+    .item-slide {
+        height: 100%;
+    }
+
+    &__slide {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        border-radius: 12px;
+        background: #fff;
+        @include overFlow;
+    }
+
+    .splide {
+        .splide__arrows {
+            .splide__arrow {
+                bottom: 50%;
+                transform: translate(0, 50%);
+            }
+        }
+
+        .splide__pagination {
+            top: 100%;
+            margin-top: 30px;
+        }
+    }
+
+    .slide {
+        &__tp {
+            width: 100%;
+            height: 275px;
+            display: flex;
+
+            .im {
+                width: 100%;
+                height: 100%;
+                display: flex;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: all 0.3s ease-in-out;
+                }
+
+                &.im--video {
+                    position: relative;
+
+                    &::before {
+                        width: 90px;
+                        height: 90px;
+                        background: #fff;
+                        display: inline-block;
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        transition: all 0.4s ease-in-out;
+                        border-radius: 50%;
+                        z-index: 1;
+
+                    }
+
+                    &::after {
+                        width: 27px;
+                        height: 35px;
+                        display: inline-block;
+                        content: '';
+                        background: url('data:image/svg+xml,<svg width="27" height="31" viewBox="0 0 27 31" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24.6777 12.6465C25.6348 13.2617 26.25 14.3555 26.25 15.4492C26.25 16.6113 25.6348 17.7051 24.6777 18.252L4.99023 30.2832C3.96484 30.8984 2.66602 30.9668 1.64062 30.3516C0.615234 29.8047 0 28.7109 0 27.4805V3.41797C0 2.25586 0.615234 1.16211 1.64062 0.615234C2.66602 0 3.96484 0 4.99023 0.683594L24.6777 12.6465Z" fill="%23C2C2C2"/></svg>');
+                        background-size: 100% 100%;
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        transition: all 0.4s ease-in-out;
+                        z-index: 2;
+                    }
+
+                    &:hover {
+                        &::before {
+                            transform: translate(-50%, -50%) scale(1.15);
+                        }
+                    }
+                }
+
+                &:hover {
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+
+        }
+
+        &__bt {
+            width: 100%;
+            flex-grow: 1;
+            display: flex;
+            padding: 35px;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+
+            .nm {
+                @include text(20px, #999999, 1, 700);
+                letter-spacing: -0.03em;
+                transition: all 0.3s ease-in-out;
+                display: inline-block;
+                margin-bottom: 10px;
+
+                &:hover {
+                    color: #262A2B;
+                }
+            }
+
+            p {
+                @include text(18px, #B6B6B6, 1.6, 400);
+                letter-spacing: -0.03em;
+                margin-bottom: 20px;
+            }
+
+            .default-button {
+                align-self: flex-end;
+                margin-top: auto;
+            }
+        }
+    }
+}
+
+
+@include maxw($desktop) {
+    .media-section {
+        padding: vwD(120px) 0;
+
+        &__wrapper {
+            gap: vwD(30px);
+        }
+
+        &__slider {
+            width: 100%;
+            padding-bottom: vwD(38px);
+
+            .splide {
+                padding: 0 vwD(80px);
+            }
+        }
+
+        &__slide {
+            border-radius: vwD(12px);
+        }
+
+        .splide {
+            .splide__pagination {
+                margin-top: vwD(30px);
+            }
+        }
+
+        .slide {
+            &__tp {
+                height: vwD(275px);
+
+                .im {
+                    &.im--video {
+                        &::before {
+                            width: vwD(90px);
+                            height: vwD(90px);
+                        }
+
+                        &::after {
+                            width: vwD(27px);
+                            height: vwD(35px);
+                        }
+                    }
+                }
+            }
+
+            &__bt {
+                padding: vwD(35px);
+
+                .nm {
+                    font-size: vwD(20px);
+                    margin-bottom: vwD(10px);
+                }
+
+                p {
+                    font-size: vwD(18px);
+                    margin-bottom: vwD(20px);
+                }
+            }
+        }
+    }
+}
+
+@include maxw($mobile) {
+
+}

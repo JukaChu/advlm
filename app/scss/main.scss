@@ -1,0 +1,49 @@
+$mainFont: "Arimo", sans-serif;
+$desktop: 1912px;
+$mobile: 991px;
+$brown: #B1976B;
+
+
+@function vwD($px-vw, $base-vw: 1912px) {
+  @return ($px-vw * 100vw) / $base-vw;
+}
+
+@function vwM($px-vw, $base-vw: 393px) {
+  @return ($px-vw * 100vw) / $base-vw;
+}
+
+@mixin maxw($mobile) {
+  @media only screen and (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin minw($mobile) {
+  @media only screen and (min-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin text($fz, $col, $lh: normal, $fw: normal) {
+  font-size: $fz;
+  color: $col;
+  line-height: $lh;
+  font-weight: $fw;
+}
+
+
+@mixin mask($url) {
+  mask-image: $url;
+  mask-position: center center;
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+@mixin overFlow {
+  overflow: hidden;
+  backface-visibility: hidden;
+  appearance: none;
+}
+
+@import "sections/hero-new";
+@import "sections/media-section";
