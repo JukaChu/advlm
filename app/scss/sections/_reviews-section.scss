@@ -1,0 +1,244 @@
+.reviews-section {
+    width: 100%;
+    padding: 120px 0;
+    background: #fff;
+    &__wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+    &__top {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    &__content {
+        width: 100%;
+    }
+    .wp-gr  {
+        .grw-header-inner {
+            padding: 24px !important;
+        }
+        .grw-header {
+            flex: initial !important;
+            width: 410px !important;
+            .wp-google-place {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                .default-button {
+                    align-self: flex-end;
+                    margin-top: 16px;
+                }
+            }
+            .wp-google-left {
+                padding: 0 !important;
+                margin-bottom: 16px !important;
+                display: flex !important;
+                width: 120px !important;
+                height: 120px !important;
+                @include overFlow;
+                border-radius: 50%;
+                img {
+                    width: 100% !important;
+                    height: 100% !important;
+                    margin: 0 !important;
+                    box-shadow: none !important;
+                }
+            }
+            .wp-google-right {
+                display: flex !important;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 8px;
+                flex-wrap: wrap;
+                width: 100% !important;
+            }
+
+            .wp-google-name {
+                display: none !important;
+            }
+            .wp-google-rating {
+                display: none;
+            }
+            .wp-google-based {
+                @include text(16px !important, #1A1A1A !important, 1.2 !important, 500 !important);
+                margin: 0 !important;
+            }
+            .wp-google-powered {
+                display: none !important;
+            }
+            .wp-google-wr {
+                display: none;
+            }
+        }
+        .grw-review {
+            padding: 27px 5px !important;
+            .wp-google-text {
+                font-size: 16px !important;
+                line-height: 1.2 !important;
+
+            }
+            .wp-google-time {
+                font-size: 12px !important;
+                color: #000 !important;
+                opacity: 0.5 !important;
+            }
+            a.wp-google-name {
+                color: #1A1A1A !important;
+                font-size: 16px !important;
+            }
+        }
+        .grw-content {
+            flex: initial !important;
+            width: calc(100% - 410px) !important;
+            .grw-review-inner {
+                gap: 16px !important;
+                border-radius: 16px !important;
+                border: 1px solid #3686F7 !important;
+                background: linear-gradient(126.27deg, #FFD8F7 -11.56%, #FFFFFF 16.68%, #FFFFFF 73.72%, #D6E7FF 134.39%) !important;
+                box-shadow: 0px 28px 11px rgba(0, 0, 0, 0.01), 0px 16px 9px rgba(0, 0, 0, 0.05), 0px 7px 7px rgba(0, 0, 0, 0.09), 0px 2px 4px rgba(0, 0, 0, 0.1) !important;
+            }
+        }
+        .grw-btns {
+            border-radius: 50% !important;
+            background: #fff !important;
+            filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.25)) !important;
+
+        }
+
+
+    }
+}
+
+@include maxw($desktop) {
+    .reviews-section {
+        padding: vwD(120px) 0;
+
+        &__wrapper {
+            gap: vwD(10px);
+        }
+
+        .wp-gr  {
+            .grw-header-inner {
+                padding: vwD(24px) !important;
+            }
+            .grw-header {
+                width: vwD(410px) !important;
+                .wp-google-place {
+                    .default-button {
+                        margin-top: vwD(16px);
+                    }
+                }
+                .wp-google-left {
+                    margin-bottom: vwD(16px) !important;
+                    width: vwD(120px) !important;
+                    height: vwD(120px) !important;
+                }
+                .wp-google-right {
+                    gap: vwD(8px);
+
+                }
+
+
+                .wp-google-based {
+                font-size: vwD(16px) !important;
+                }
+
+            }
+            .grw-review {
+                padding: vwD(27px) vwD(5px) !important;
+                .wp-google-text {
+                    font-size: vwD(16px) !important;
+
+                }
+                .wp-google-time {
+                    font-size: vwD(12px) !important;
+
+                }
+            }
+            .grw-content {
+                width: calc(100% - vwD(410px)) !important;
+                a.wp-google-name {
+                    font-size: vwD(16px) !important;
+                }
+                .grw-review-inner {
+                    gap: vwD(16px) !important;
+                    border-radius: vwD(16px) !important;
+                    box-shadow: 0px vwD(28px) vwD(11px) rgba(0, 0, 0, 0.01), 0px vwD(16px) vwD(9px) rgba(0, 0, 0, 0.05), 0px vwD(7px) vwD(7px) rgba(0, 0, 0, 0.09), 0px vwD(2px) vwD(4px) rgba(0, 0, 0, 0.1) !important;
+
+                }
+            }
+
+
+        }
+    }
+}
+
+@include maxw($mobile) {
+    .reviews-section {
+        padding: vwM(30px) 0;
+
+        &__wrapper {
+            gap: vwM(20px);
+        }
+
+        .wp-gr {
+            .grw-review {
+                padding: 12px 0 !important;
+            }
+            .grw-header {
+                width: 100% !important;
+                .wp-google-left {
+                    width: 90px !important;
+                    height: 90px !important;
+
+                }
+                .wp-google-place {
+                    align-items: center;
+                }
+                .wp-google-right {
+                    gap: 5px !important;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-start;
+                }
+                .wp-google-based {
+                    font-size: 12px !important;
+                }
+                .wp-google-place .default-button {
+                    margin-top: 12px !important;
+                    align-self: center;
+
+                }
+            }
+            .grw-content {
+                width: 100% !important;
+                a.wp-google-name {
+                    font-size: 14px !important;
+                }
+            }
+            .grw-review .wp-google-time {
+                font-size: 12px !important;
+            }
+            .grw-header-inner {
+                padding: 12px 0 !important;
+            }
+            .grw-content .grw-review-inner {
+                gap: 12px !important;
+                border-radius: 10px !important;
+            }
+            .grw-review .wp-google-text {
+                font-size: 12px !important;
+            }
+        }
+
+    }
+}

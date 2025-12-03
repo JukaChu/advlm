@@ -1,0 +1,264 @@
+.text-contacts {
+    width: 100%;
+    padding: 60px 0;
+
+    &__wrapper {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 46px;
+    }
+
+    &__right {
+        width: 100%;
+        max-width: calc(100% - 710px);
+        padding-right: 40px;
+
+        .text {
+            width: 100%;
+
+            p {
+                strong {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    &__left {
+        width: 100%;
+        max-width: 664px;
+        background: #fff;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        .title {
+            font-size: 28px;
+        }
+
+        .img {
+            margin-top: 30px;
+            width: 100%;
+            aspect-ratio: 1 / 0.523;
+            display: flex;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+    }
+
+    &__list {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+
+    }
+
+
+    & &__item {
+        width: calc(50% - 15px);
+        display: flex !important;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 15px;
+
+        .ic {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            @include overFlow;
+            display: flex;
+            flex-shrink: 0;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .txt {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 10px;
+
+            span {
+                @include text(16px, #2F3537, 1, 400);
+            }
+
+            p {
+                @include text(20px, #262A2B, 1, 700);
+                transition: all 0.3s ease-in-out;
+            }
+        }
+
+        &[href] {
+            &:hover {
+                p {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+
+    }
+
+}
+
+@include maxw($desktop) {
+    .text-contacts {
+        padding: vwD(60px) 0;
+
+        &__wrapper {
+            gap: vwD(46px);
+        }
+
+        &__right {
+            max-width: calc(100% - vwD(710px));
+            padding-right: vwD(40px);
+
+            .text {
+
+                p {
+                    strong {
+                        font-size: vwD(20px);
+                    }
+                }
+            }
+        }
+
+        &__left {
+            max-width: vwD(664px);
+            padding: vwD(30px);
+
+            .title {
+                font-size: vwD(28px);
+            }
+
+            .img {
+                margin-top: vwD(30px);
+            }
+
+        }
+
+        &__list {
+            gap: vwD(30px);
+            margin-top: vwD(30px);
+
+        }
+
+
+        & &__item {
+            width: calc(50% - vwD(15px));
+
+            gap: vwD(15px);
+
+            .ic {
+                width: vwD(34px);
+                height: vwD(34px);
+
+            }
+
+            .txt {
+                gap: vwD(10px);
+
+                span {
+                    font-size: vwD(16px);
+                }
+
+                p {
+                    font-size: vwD(20px);
+                }
+            }
+
+
+        }
+
+    }
+}
+
+@include maxw($mobile) {
+
+    .text-contacts {
+        padding: vwM(30px) 0;
+
+        &__wrapper {
+            gap: vwM(20px);
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        &__right {
+            width: 100%;
+            max-width: 100%;
+            padding-right: 0;
+
+            .text {
+                p {
+                    strong {
+                        font-size: vwM(18px);
+                    }
+                }
+            }
+        }
+
+        &__left {
+            width: 100%;
+            max-width: 100%;
+            padding: vwM(20px);
+
+            .title {
+                font-size: vwM(24px);
+            }
+
+            .img {
+                margin-top: vwM(25px);
+            }
+        }
+
+        &__list {
+            gap: vwM(10px);
+            margin-top: vwM(20px);
+
+        }
+
+
+        & &__item {
+            width: calc(50% - vwM(5px));
+            gap: vwM(10px);
+
+            .ic {
+                width: vwM(25px);
+                height: vwM(25px);
+            }
+
+            .txt {
+                gap: vwM(5px);
+
+                span {
+                    font-size: vwM(12px);
+                }
+
+                p {
+                    font-size: vwM(14px);
+                }
+            }
+        }
+    }
+}

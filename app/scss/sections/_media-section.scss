@@ -1,3 +1,7 @@
+.team .banner-item .banner-item__content-button {
+    flex-shrink: 0;
+}
+
 .media-section {
     padding: 120px 0;
 
@@ -232,5 +236,61 @@
 }
 
 @include maxw($mobile) {
+    .media-section {
+        padding: vwM(30px) 0;
 
+        &__wrapper {
+            gap: vwM(15px);
+        }
+
+        &__slider {
+            padding-bottom: vwM(10px);
+
+            .splide {
+                padding: 0 vwM(15px);
+            }
+        }
+
+        .splide {
+            .splide__pagination {
+                margin-top: vwM(10px);
+            }
+        }
+
+        &__slide {
+            border-radius: vwM(10px);
+        }
+
+        .slide {
+            &__tp {
+                height: vwM(220px);
+
+                .im.im--video {
+                    &::before {
+                        width: vwM(50px);
+                        height: vwM(50px);
+                    }
+
+                    &::after {
+                        width: vwM(16px);
+                        height: vwM(20px);
+                    }
+                }
+            }
+
+            &__bt {
+                padding: vwM(15px);
+
+                .nm {
+                    font-size: vwM(16px);
+                    margin-bottom: vwM(10px);
+                }
+
+                p {
+                    font-size: vwM(14px);
+                    margin-bottom: vwM(10px);
+                }
+            }
+        }
+    }
 }

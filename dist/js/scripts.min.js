@@ -1,5 +1,3 @@
-
-
 function initHeroRowSlider2() {
     let sectionHeroRow2 = document.querySelectorAll('.hero-row__slider');
 
@@ -9,8 +7,8 @@ function initHeroRowSlider2() {
             let sliderNav = section.querySelector('.hero__media-navigation .splide');
             let btnPrev = section.querySelector('.splide__arrow--prev');
             let btnNext = section.querySelector('.splide__arrow--next');
-            let pagesBox     = section.querySelector('.hero-row__pages');
-            let progressBox  = section.querySelector('.hero-row__progress');
+            let pagesBox = section.querySelector('.hero-row__pages');
+            let progressBox = section.querySelector('.hero-row__progress');
             if (!sliderRow) return;
 
             var splideRow = new Splide(sliderRow, {
@@ -69,10 +67,11 @@ function initHeroRowSlider2() {
                 updateSliderState();
             });
             splideRow.on('move', updateSliderState);
+
             function updateSliderState() {
                 let index = splideRow.index;
                 let currentEl = pagesBox?.querySelector('.current');
-                let segments  = progressBox?.querySelectorAll('.hero-row__progress-item') || [];
+                let segments = progressBox?.querySelectorAll('.hero-row__progress-item') || [];
 
                 if (currentEl) {
                     currentEl.textContent = String(index + 1).padStart(2, '0');
@@ -82,6 +81,7 @@ function initHeroRowSlider2() {
                     el.classList.toggle('is-active', i === index);
                 });
             }
+
             splideRow.mount();
         });
     }
@@ -107,6 +107,38 @@ function initMediaSlider() {
                 breakpoints: {
                     991: {
                         gap: '3.8168vw',
+                        perPage: 1,
+                        perMove: 1,
+                    },
+                },
+            });
+
+            splideInfo.mount();
+        });
+    }
+
+}
+
+function initBlogSlider() {
+    let sectionMedia = document.querySelectorAll('.articles__slider');
+
+    if (sectionMedia.length) {
+        sectionMedia.forEach(section => {
+            let slider = section.querySelector('.splide');
+
+            var splideInfo = new Splide(slider, {
+                updateOnMove: true,
+                direction: checkDirectionSite,
+                type: 'loop',
+                perPage: 4,
+                gap: '2.08vw',
+                perMove: 1,
+                speed: 1000,
+                arrows: true,
+                pagination: true,
+                breakpoints: {
+                    991: {
+                        gap: '2.54vw',
                         perPage: 2,
                         perMove: 1,
                     },
@@ -118,13 +150,103 @@ function initMediaSlider() {
     }
 
 }
+
+function initTeamSectionSlider() {
+    let sectionMedia = document.querySelectorAll('.team-slider');
+
+    if (sectionMedia.length) {
+        sectionMedia.forEach(section => {
+            let slider = section.querySelector('.splide');
+
+            var splideInfo = new Splide(slider, {
+                updateOnMove: true,
+                direction: checkDirectionSite,
+                type: 'loop',
+                perPage: 6,
+                gap: '0.78vw',
+                perMove: 1,
+                speed: 1000,
+                arrows: true,
+                pagination: true,
+                breakpoints: {
+                    991: {
+                        gap: '2.03vw',
+                        perPage: 2,
+                        perMove: 1,
+                    },
+                },
+            });
+
+            splideInfo.mount();
+        });
+    }
+
+}
+
+function createReviewLink() {
+
+    let linkReviewsGoog = document.querySelector('.wp-google-wr a');
+    if (linkReviewsGoog) {
+        linkReviewsGoog.closest('.wp-gr').classList.remove('wpac');
+        let aWrap = document.createElement('div');
+        aWrap.innerHTML = document.querySelector('.reviews-section__btn-txt').innerText;
+        let spanArr = document.createElement('span');
+        spanArr.classList.add('is-icon-arrow');
+        aWrap.appendChild(spanArr);
+        aWrap.classList.add('default-button');
+        aWrap.classList.add('is-icon');
+        aWrap.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            linkReviewsGoog.click();
+        })
+        linkReviewsGoog.closest('.wp-google-place').appendChild(aWrap);
+    }
+}
+
+
+function initServicesToggle() {
+
+    const isMobile = window.innerWidth < 992;
+
+    const $items = $('.services-section__item-wrap');
+    const $blocks = $('.services-section__item-block');
+
+    if ($items) {
+        if (isMobile) {
+
+        } else {
+
+            $items.hover(
+                function () {
+                    $(this).find('.services-section__item-block')
+                        .stop(true, true)
+                        .slideDown(400);
+                },
+                function () {
+                    $(this).find('.services-section__item-block')
+                        .stop(true, true)
+                        .slideUp(400);
+                }
+            );
+        }
+    }
+}
+
+initServicesToggle();
+createReviewLink()
+
 if (document.body.classList.contains('wp-admin')) {
     window.addEventListener('load', initHeroRowSlider2);
     window.addEventListener('load', initMediaSlider);
+    window.addEventListener('load', initBlogSlider);
+    window.addEventListener('load', initTeamSectionSlider);
 
 } else {
     document.addEventListener('DOMContentLoaded', initHeroRowSlider2);
     document.addEventListener('DOMContentLoaded', initMediaSlider);
+    document.addEventListener('DOMContentLoaded', initBlogSlider);
+    document.addEventListener('DOMContentLoaded', initTeamSectionSlider);
 }
 
 

@@ -1,0 +1,195 @@
+.blog-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    &__img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        display: inline-block;
+        @include overFlow;
+        position: relative;
+
+        .im {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: all 0.4s ease-in-out;
+            }
+
+            &::after {
+                display: inline-block;
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(179.87deg, rgba(255, 255, 255, 0) 38.89%, rgba(38, 42, 43, 0.5) 99.89%);
+            }
+        }
+
+        .log {
+            width: 124px;
+            height: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 50%;
+            bottom: 17px;
+            transform: translate(-50%, 0);
+            z-index: 1;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        &:hover {
+            .im {
+                img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+
+    &__content {
+        width: 100%;
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        .ln {
+            margin: 0;
+            @include text(18px, #1E2631, 1.4, 700);
+            letter-spacing: -0.03em;
+            transition: all 0.3s ease-in-out;
+            text-decoration: none !important;
+            &:hover {
+                text-decoration: underline !important;
+            }
+        }
+    }
+
+    &__tags {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 5px 19px;
+        margin-bottom: 20px;
+
+
+
+        p {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 8px;
+            @include text(14px, #262A2B, 1.4, 400);
+            letter-spacing: -0.03em;
+            margin: 0;
+
+            &::before {
+                width: 10px;
+                height: 10px;
+                display: inline-block;
+                content: '';
+                background: $brown;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+@include maxw($desktop) {
+    .blog-card {
+        &__img {
+            .log {
+                width: vwD(124px);
+                height: vwD(62px);
+                bottom: vwD(17px);
+            }
+
+        }
+
+        &__content {
+            padding: vwD(20px) 0;
+
+            .ln {
+                font-size: vwD(18px);
+            }
+        }
+
+        &__tags {
+            gap: vwD(5px) vwD(19px);
+            margin-bottom: vwD(20px);
+
+
+
+            p {
+                gap: vwD(8px);
+                font-size: vwD(14px);
+
+                &::before {
+                    width: vwD(10px);
+                    height: vwD(10px);
+
+                }
+            }
+        }
+    }
+}
+
+@include maxw($mobile) {
+    .blog-card {
+        &__img {
+            .log {
+                width: vwM(92px);
+                height: vwM(42px);
+                bottom: vwM(12px);
+            }
+
+        }
+
+        &__content {
+            padding: vwM(15px) 0;
+
+            .ln {
+                font-size: vwM(14px);
+            }
+        }
+
+        &__tags {
+            gap: vwM(5px) vwM(12px);
+            margin-bottom: vwM(12px);
+
+
+
+            p {
+                gap: vwM(6px);
+                font-size: vwM(12px);
+
+                &::before {
+                    width: vwM(8px);
+                    height: vwM(8px);
+
+                }
+            }
+        }
+    }
+}
