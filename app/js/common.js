@@ -233,20 +233,55 @@ function initServicesToggle() {
     }
 }
 
-initServicesToggle();
-createReviewLink()
+
+// tabs
+
+let ownerTabs = [...document.querySelectorAll('.tabs-owner')];
+
+function controlTabs() {
+    if (ownerTabs.length) {
+        ownerTabs.forEach((tab) => {
+            let tabOpen = [...tab.querySelectorAll('.tab-btn')];
+            let singleTab = [...tab.querySelectorAll('.single-tab')];
+
+            tabOpen.forEach((btn, k) => {
+                btn.addEventListener('click', () => {
+                    if (!btn.classList.contains('active')) {
+                        tabOpen.forEach((btn2) => {
+                            btn2.classList.remove('active');
+                        });
+                        singleTab.forEach((btn3) => {
+                            btn3.classList.remove('active');
+                        });
+                        btn.classList.add('active');
+                        singleTab[k].classList.add('active');
+                    }
+                })
+            });
+        })
+    }
+}
+
+
+// tabs
 
 if (document.body.classList.contains('wp-admin')) {
     window.addEventListener('load', initHeroRowSlider2);
     window.addEventListener('load', initMediaSlider);
     window.addEventListener('load', initBlogSlider);
     window.addEventListener('load', initTeamSectionSlider);
+    window.addEventListener('load', initServicesToggle);
+    window.addEventListener('load', createReviewLink);
+    window.addEventListener('load', controlTabs);
 
 } else {
     document.addEventListener('DOMContentLoaded', initHeroRowSlider2);
     document.addEventListener('DOMContentLoaded', initMediaSlider);
     document.addEventListener('DOMContentLoaded', initBlogSlider);
     document.addEventListener('DOMContentLoaded', initTeamSectionSlider);
+    document.addEventListener('DOMContentLoaded', initServicesToggle);
+    document.addEventListener('DOMContentLoaded', createReviewLink);
+    document.addEventListener('DOMContentLoaded', controlTabs);
 }
 
 
