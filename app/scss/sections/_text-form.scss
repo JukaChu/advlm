@@ -1,0 +1,98 @@
+.text-form {
+    width: 100%;
+    padding: 60px 0 120px;
+    &__wrapper {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 166px;
+    }
+    &__text {
+        width: 100%;
+        max-width: 1116px;
+        display: flex;
+        .text {
+            width: 100%;
+        }
+    }
+    &__form {
+        width: 100%;
+        max-width: 498px;
+        background: #262A2B;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 30px;
+        padding: 30px;
+        position: sticky;
+        top: 200px;
+        > span {
+            @include text(26px, #fff, 1.2, 700);
+            letter-spacing: -0.01em;
+        }
+        > p {
+            @include text(18px, #fff, 1.6, 400);
+            letter-spacing: -0.03em;
+        }
+        .contact.contact-dark {
+            background: rgba(255, 255, 255, 0);
+        }
+    }
+}
+
+@include maxw($desktop) {
+    .text-form {
+        padding: vwD(60px) 0 vwD(120px);
+        &__wrapper {
+            gap: vwD(166px);
+        }
+        &__text {
+            max-width: vwD(1116px);
+        }
+        &__form {
+            max-width: vwD(498px);
+            gap: vwD(30px);
+            padding: vwD(30px);
+            top: vwD(200px);
+            > span {
+                font-size: vwD(26px);
+            }
+            > p {
+                font-size: vwD(18px);
+            }
+
+        }
+    }
+}
+
+@include maxw($mobile) {
+    .text-form {
+        padding: 30px 0;
+        &__wrapper {
+            gap: 20px;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        &__text {
+            max-width: 100%;
+        }
+        &__form {
+            max-width: 100%;
+            gap: vwM(20px);
+            padding: vwM(20px);
+            top: auto;
+            position: static;
+            > span {
+                font-size: vwM(20px);
+            }
+            > p {
+                font-size: vwM(14px);
+            }
+
+        }
+    }
+
+}
