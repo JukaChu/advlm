@@ -45,15 +45,15 @@ $brown: #B1976B;
   appearance: none;
 }
 
-@import "sections/hero-new";
-@import "sections/media-section";
-@import "sections/services-section";
-@import "sections/blog-card";
-@import "sections/articles";
-@import "sections/reviews-section";
-@import "sections/text-contacts";
-@import "sections/team-slider";
-@import "sections/office-info";
-@import "sections/about-background";
-@import "sections/hero-404";
-@import "sections/text-form";
+@import "components/sections/hero-new";
+@import "components/sections/media-section";
+@import "components/sections/services-section";
+@import "components/sections/blog-card";
+@import "components/sections/articles";
+@import "components/sections/reviews-section";
+@import "components/sections/text-contacts";
+@import "components/sections/team-slider";
+@import "components/sections/office-info";
+@import "components/sections/about-background";
+@import "components/sections/hero-404";
+@import "components/sections/text-form";
